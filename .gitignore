@@ -1,0 +1,9 @@
+# Ignore .env files
+.env
+rag-service/.env
+
+# Ignore node_modules
+node_modules/
+
+# Ignore Python virtual environment
+rag-service/env/
