@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 import re
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -15,7 +15,7 @@ app = Flask(__name__)
 # Load Sentence Transformer model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 # Initialize the OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # Financial tips document with varied queries and rule variations
 finance_tips = [
     "Follow the 50/30/20 rule: Spend 50% on needs, 30% on wants, and save 20%.",
