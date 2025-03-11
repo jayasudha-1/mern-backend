@@ -14,8 +14,10 @@ app = Flask(__name__)
 
 # Load Sentence Transformer model
 model = SentenceTransformer('all-MiniLM-L6-v2')
+
 # Initialize the OpenAI client
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 # Financial tips document with varied queries and rule variations
 finance_tips = [
     "Follow the 50/30/20 rule: Spend 50% on needs, 30% on wants, and save 20%.",
@@ -126,4 +128,6 @@ def get_answer():
     return jsonify({"response": generated_response})
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Bind to the port specified by Render (or default to 5000)
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
