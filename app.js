@@ -19,7 +19,7 @@ mongoose
 
 //! CORS configuration
 const corsOptions = {
-  origin: ["http://localhost:5173"], // Allow requests from frontend
+  origin: ["https://mern-frontend-1bqc.onrender.com"], // Allow requests from frontend
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"], // Allowed methods
   allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   credentials: true, // Allow credentials (cookies, etc.)

@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
 
   try {
     // Call the Python Flask service for RAG
-    const response = await axios.post("http://127.0.0.1:5000/get_answer", {
+    const response = await axios.post("https://rag-service-deploy.onrender.com/get_answer", {
       query: userMessage,
     });
 
